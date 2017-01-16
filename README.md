@@ -1,6 +1,6 @@
 # For users of the Archlinux family
 
-Git version configured with support for plugins and domains blacklist
+dnscrypt-proxy Git version configured with support for plugins and domains blacklist.
 
 **AUR:** https://aur.archlinux.org/packages/dnscrypt-proxy-git/
 
