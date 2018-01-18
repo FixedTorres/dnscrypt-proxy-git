@@ -3,22 +3,22 @@
 
 pkgname=dnscrypt-proxy-git
 _pkgname=dnscrypt-proxy
-pkgver=1.9.4.2355.d6b61d9
-pkgrel=1
+pkgver=2018.01.07.2504.f71ca69
+pkgrel=2
 pkgdesc="Is a protocol for securing communications between a client and a DNS resolver"
 arch=('i686' 'x86_64')
-url="http://dnscrypt.org/"
+url="https://github.com/dyne/dnscrypt-proxy"
 license=('custom:ISC')
-depends=('libsodium' 'systemd' 'libtool' 'ldns')
+depends=('libsodium' 'systemd' 'libtool' 'ldns' 'git')
 options=(libtool)
 conflicts=('dnscrypt-proxy')
-backup=('etc/dnscrypt-proxy.conf')
+backup=('etc/dnscrypt-proxy.conf' 'dnscrypt-proxy.service')
 install=dnscrypt-proxy-git.install
-source=("${_pkgname}::git+https://github.com/jedisct1/dnscrypt-proxy.git")
+source=("${_pkgname}::git+https://github.com/dyne/dnscrypt-proxy.git")
 
 pkgver() {
  cd ${_pkgname}
-  echo "$(git describe --tags --abbrev=0).$(git rev-list --count HEAD).$(git rev-parse --short HEAD)"
+  echo "2018.01.07$(git describe --tags --abbrev=0).$(git rev-list --count HEAD).$(git rev-parse --short HEAD)"
 }
 
 prepare() {
@@ -26,7 +26,7 @@ prepare() {
   sed -e 's|^ExecStart=.*|ExecStart=/usr/bin/dnscrypt-proxy /etc/dnscrypt-proxy.conf|' \
          -i dnscrypt-proxy.service.in
   sed -e 's|python|python2|' -i contrib/generate-domains-blacklist.py
-  sed -e 's|^PKG_DATA_DIR=.*|PKG_DATA_DIR="../.."|' \
+  sed -e 's|^PKG_DATA_DIR=.*|PKG_DATA_DIR=".."|' \
          -i contrib/dnscrypt-update-resolvers.sh.in
 }
 
