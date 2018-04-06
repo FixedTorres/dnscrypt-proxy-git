@@ -3,9 +3,9 @@
 
 pkgname=dnscrypt-proxy-git
 _pkgname=dnscrypt-proxy
-pkgver=2018.01.07.2504.f71ca69
-pkgrel=2
-pkgdesc="Is a protocol for securing communications between a client and a DNS resolver"
+pkgver=2018.04.05.2506.cf482ca
+pkgrel=1
+pkgdesc="Is a protocol for securing communications between a client and a DNS resolver - legacy"
 arch=('i686' 'x86_64')
 url="https://github.com/dyne/dnscrypt-proxy"
 license=('custom:ISC')
@@ -18,7 +18,7 @@ source=("${_pkgname}::git+https://github.com/dyne/dnscrypt-proxy.git")
 
 pkgver() {
  cd ${_pkgname}
-  echo "2018.01.07$(git describe --tags --abbrev=0).$(git rev-list --count HEAD).$(git rev-parse --short HEAD)"
+  echo "2018.04.05$(git describe --tags --abbrev=0).$(git rev-list --count HEAD).$(git rev-parse --short HEAD)"
 }
 
 prepare() {
