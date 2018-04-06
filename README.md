@@ -1,27 +1,19 @@
-# For users of the Archlinux family
+# Git version of Dnscrypt for the Archlinux family
 
-dnscrypt-proxy Git version configured with support for plugins and domains blacklist.
+Git version of dnscrypt-proxy configured with plugin support and domain blacklist.
 
 # Installation on Archlinux
 
-For the use of the plugins it is necessary to add the option "options" with the parameter "libtool" in the PKGBUILD file, like this: 
+For the use of the plugins it is necessary to add the option "options" with the parameter "libtool" in the file PKGBUILD, as well: 
 
 > * options=(libtool)
 
-After this, you need to build the package again with the makepkg command. However, you can install dnscrypt-proxy in two ways:
+After that, you need to rebuild the package with the command makepkg:
 
-* The first, by installing the stable version of the package, like this:    
+* [fixedtorres@linuxero ~]$ makepkg
 
-    > sudo pacman -S dnscrypt-proxy 
-
-* The second, by installing the git version of the package, like this:
-
-    > yaourt -S dnscrypt-proxy-git
-
-There is a difference between both packages, the git version in AUR is ready and configured for use with the plugins and the script for to generate blacklist domains. However, if you want to install the stable version, there is a version in [github](https://github.com/FixedTorres/dnscrypt-proxy) configured for to use plugins and the script for to generate blacklist domains.
+You can also download the version of this repository and run the previous makepkg command. This version git is ready and configured for use with the plugins and the script for generating blacklisted domains. However, if you want to install the stable version, there is a version in [github](https://github.com/FixedTorres/dnscrypt-proxy) configured to use plugins and the script to generate blacklisted domains.
 
 Once this is done, all files with .la extension are located in the `/usr/lib/dnscrypt-proxy/` directory. Without adding `options=(libtool)`, all files with .la extension disappears.
 
-**AUR:** https://aur.archlinux.org/packages/dnscrypt-proxy-git/
-
-**For more information, see:** https://github.com/jedisct1/dnscrypt-proxy/wiki
+**GIT Repository** https://github.com/dyne/dnscrypt-proxy
