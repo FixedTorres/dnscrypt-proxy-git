@@ -1,5 +1,5 @@
 post_upgrade() {
-  if [ "$(vercmp $2 1.8.1-1)" -lt 0 ]
+  if [ "$(vercmp $2018.04.05.2506.cf482ca)" -lt 0 ]
   then
      echo "Since 1.8.1-1 there is a new configuration file at /etc/dnscrypt-proxy.conf."
      echo "The systemd unit has been configured to use it, so please adjust your settings there."
